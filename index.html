@@ -1,3 +1,195 @@
+
+Claude finished the response
+You said: একটা কোড লিখে দাও যেটা এই কার্ড তৈরি করে দিবে। যে খানে qr, PHOTO আর REGISTER এর সিগনেচার আপলোড করা যাবে আর, সকল নম্বর আর তথ্য লেখার ফরম থাকবে DOWNLOD NOW CLIC…
+IMG_lmc_mt_20260514_170115_lmc_8.4.jpg.jpeg
+NNNNNNNN.jpeg
+একটা কোড লিখে দাও যেটা এই কার্ড তৈরি করে দিবে। যে খানে qr, PHOTO আর REGISTER এর সিগনেচার আপলোড  করা যাবে আর, সকল নম্বর আর তথ্য লেখার ফরম থাকবে DOWNLOD NOW CLICK করলে fRONT AND BACK SIDE HIGH DEFINITION png  এ ডাউনলোড হবে diSTORTION ছ
+
+5:44 PM
+
+Reading frontend design skill
+Reading frontend design skill
+Claude's response was interrupted.
+You said: একটা কোড লিখে দাও যেটা এই কার্ড তৈরি করে দিবে। যে খানে qr, PHOTO আর REGISTER এর সিগনেচার আপলোড করা যাবে আর, সকল নম্বর আর তথ্য লেখার ফরম থাকবে DOWNLOD NOW CLIC…
+IMG_lmc_mt_20260514_170115_lmc_8.4.jpg.jpeg
+NNNNNNNN.jpeg
+একটা কোড লিখে দাও যেটা এই কার্ড তৈরি করে দিবে। যে খানে qr, PHOTO আর REGISTER এর সিগনেচার আপলোড  করা যাবে আর, সকল নম্বর আর তথ্য লেখার ফরম থাকবে DOWNLOD NOW CLICK করলে fRONT AND BACK SIDE HIGH DEFINITION png  এ ডাউনলোড হবে diSTORTION ছাড়া, hstu LOGO AMI GITHUB REPO TE UPLOAD KORE RAKHBO EI KHANE images/hstu_logo.png. FOnt as it is rakhbe
+
+5:45 PM
+Claude responded: এখন আমি সম্পূর্ণ HTML কোডটি তৈরি করছি — ফর্ম, Canvas-ভিত্তিক card preview, এবং HD PNG ডাউনলোড সহ। এই HTML ফাইলটি ডাউনলোড করো এবং যেকোনো browser-এ open করো। নিচ…
+
+Reading frontend design skill
+Reading frontend design skill
+এখন আমি সম্পূর্ণ HTML কোডটি তৈরি করছি — ফর্ম, Canvas-ভিত্তিক card preview, এবং HD PNG ডাউনলোড সহ।
+
+
+Created a file, read a file
+Created a file, read a file
+এই HTML ফাইলটি ডাউনলোড করো এবং যেকোনো browser-এ open করো। নিচে কী কী features আছে:
+
+✅ Features:
+
+সব তথ্য (নাম, ID, Degree, Faculty, Hall, Blood Group, Mobile, Valid Date) লেখার form
+Photo, QR Code, Registrar Signature আলাদা আলাদা upload করা যাবে
+HSTU Logo — images/hstu_logo.png থেকে auto-load হবে (GitHub repo তে রাখলেই কাজ করবে), অথবা manually upload করা যাবে
+Live Preview — টাইপ করলেই কার্ড update হয়
+3x Scale (HD) — Distortion ছাড়া crisp PNG download
+Front Side আলাদা ডাউনলোড, Back Side আলাদা ডাউনলোড
+"DOWNLOAD NOW — BOTH SIDES" বাটনে একসাথে দুটোই ডাউনলোড
+GitHub Logo Setup: তোমার repo-তে images/hstu_logo.png রাখো, তাহলে HTML ফাইল একই folder-এ রাখলে auto-load হবে।
+
+
+Hstu id card generator
+Code · HTML 
+You said: back side e je number ache oitao form e lekar option dao ar live preview dorkar nai
+back side e je number ache oitao form e lekar option dao ar live preview dorkar nai
+
+5:49 PM
+Claude responded: এখন back side-এর সব editable fields form-এ যোগ করছি এবং live preview সরিয়ে দিচ্ছি।
+
+Viewed 3 files
+Viewed 3 files
+এখন back side-এর সব editable fields form-এ যোগ করছি এবং live preview সরিয়ে দিচ্ছি।
+
+
+Remove liveUpdate calls from all front inputs
+Remove liveUpdate calls from all front inputs
+Claude's response was interrupted.
+You said: sudhu niche je number ache oita sob dorkar nei
+sudhu niche je number ache oita sob dorkar nei
+
+5:50 PM
+Claude responded: Back side-এর শুধু Contact Number, Website আর Extra Number line-এর form field যোগ করছি। এখন ৩টা কাজ করছি: ১) back side-এর নিচের number গুলো form-এ আনা, ২) live …
+Back side-এর শুধু Contact Number, Website আর Extra Number line-এর form field যোগ করছি।
+
+
+Viewed 2 files
+Viewed 2 files
+এখন ৩টা কাজ করছি: ১) back side-এর নিচের number গুলো form-এ আনা, ২) live update সরানো, ৩) renderBack-এ val
+
+Claude's response was interrupted.
+You said: Extra Number line-এর form field যোগ koro
+Extra Number line-এর form field যোগ koro
+
+5:51 PM
+Claude responded: এখন renderBack-এ hardcoded নম্বরগুলো val() দিয়ে replace করছি: এখন সব oninput="liveUpdate()" এবং liveUpdate function সরিয়ে দিচ্ছি: আর window.
+
+Add back side number fields to form and remove liveUpdate calls
+Add back side number fields to form and remove liveUpdate calls
+এখন renderBack-এ hardcoded নম্বরগুলো val() দিয়ে replace করছি:
+
+
+Use form values in back side rendering
+Use form values in back side rendering
+এখন সব oninput="liveUpdate()" এবং liveUpdate function সরিয়ে দিচ্ছি:
+
+
+Ran a command, edited a file
+Ran a command, edited a file
+আর window.onload এ auto-render বন্ধ করি যাতে শুধু Generate বাটনে কাজ করে:
+
+
+Edited 3 files, read a file
+Edited 3 files, read a file
+হয়ে গেছে! এখন যা যা পরিবর্তন হয়েছে:
+
+Back side-এ Contact Number, Website, এবং Extra Number Line — তিনটাই form-এ লেখা যাবে
+Live preview বন্ধ — শুধু "Generate Preview" বাটন চাপলেই card তৈরি হবে
+Upload করলেও auto-render হবে না, manually Generate করতে হবে
+
+Hstu id card generator
+Code · HTML 
+You said: Signature, QR, ar PHOTO ki size e upload korbo?
+Signature, QR, ar PHOTO ki size e upload korbo?
+
+5:56 PM
+Claude responded: এই তিনটার জন্য recommended size:
+এই তিনটার জন্য recommended size:
+
+📸 Photo (Student)
+
+Size: 300 × 400 px (3:4 ratio, portrait)
+Format: JPG বা PNG
+✍️ Registrar Signature
+
+Size: 400 × 150 px (landscape, wide)
+Format: PNG (transparent background হলে সবচেয়ে ভালো)
+📱 QR Code
+
+Size: 300 × 300 px (1:1 square)
+Format: PNG
+তবে যেকোনো size-এর image upload করলেও কাজ করবে — canvas নিজেই stretch/fit করে নেবে। শুধু ratio মিলিয়ে রাখলে distortion আসবে না।
+
+You said: follow the exact design, look you messed up where and do not deed rounded corner and the logo is not in shape
+HSTU_ID_FRONT_HD.png
+follow the exact design, look you messed up where and do not deed rounded corner and the logo is not in shape
+
+6:10 PM
+Claude responded: কার্ডটা দেখলাম। সমস্যাগুলো ধরেছি:
+কার্ডটা দেখলাম। সমস্যাগুলো ধরেছি:
+
+Logo — circular clip হচ্ছে, হওয়া উচিত না, as-is রাখতে হবে
+Rounded corner — card-এ থাকবে না
+Layout — Blood Group + Mobile নিচে, Valid bar মাঝে আসছে, ঠিক করতে হবে
+University name — ৩ লাইনে break হচ্ছে সঠিকভাবে
+QR — right side middle-এ থাকবে
+Signature — নিচে বামে, Blood/Mobile তার উপরে
+
+View full renderFront function
+View full renderFront function
+পুরো renderFront ফাংশন এবং card background সম্পূর্ণ নতুনভাবে লিখছি — exact design অনুযায়ী, no rounded corners, logo as-is:
+
+
+Rewrite renderFront to exactly match the card design
+Rewrite renderFront to exactly match the card design
+Claude's response was interrupted.
+You said: aro vul acche upore green kintu puro ta na
+aro vul acche upore green kintu puro ta na
+
+6:11 PM
+Claude responded: সম্পূর্ণ renderFront নতুন করে লিখছি: এখন পুরো renderFront replace করছি — no rounded corners, full green header, logo as-is, সঠিক layout: এই fixes করা হয়েছে:
+সম্পূর্ণ renderFront নতুন করে লিখছি:
+
+
+View full file to understand structure
+View full file to understand structure
+এখন পুরো renderFront replace করছি — no rounded corners, full green header, logo as-is, সঠিক layout:
+
+
+Edited a file, read a file
+Edited a file, read a file
+
+Complete rewrite of renderFront and renderBack with correct layout - no rounded corners, full green header, logo as-is
+
+hstu_id_card_generator.html
++247
+-235
+
+Presented file
+Done
+এই fixes করা হয়েছে:
+
+Green header — এখন পুরো width জুড়ে sharp corner, কোনো rounded নেই
+Logo — কোনো clip বা shape নেই, as-is draw হবে
+Card — কোনো rounded corner নেই, সব sharp
+ID bar — header থেকে card-এর নিচ পর্যন্ত full height
+QR — bottom right-এ সঠিক জায়গায়
+Valid bar — নিচে, QR-এর পাশে
+Generate Preview চেপে দেখো।
+
+
+Hstu id card generator
+Code · HTML 
+
+You are out of free messages until 10:40 PM
+Keep working
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
+Hstu id card generator · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -189,15 +381,15 @@
 </style>
 </head>
 <body>
-
+ 
 <h1>🎓 HSTU ID Card Generator</h1>
 <p class="subtitle">Hajee Mohammad Danesh Science and Technology University — High Definition Card Maker</p>
-
+ 
 <div class="container">
   <!-- FORM PANEL -->
   <div class="form-panel">
     <h2>📋 Student Information</h2>
-
+ 
     <div class="form-group">
       <label>Student Full Name</label>
       <input type="text" id="f_name" value="S.M. MUKTADIR ISLAM">
@@ -230,10 +422,10 @@
       <label>Valid Up To</label>
       <input type="text" id="f_valid" value="Dec 2028">
     </div>
-
+ 
     <div class="divider"></div>
     <h2>🔙 Back Side Numbers</h2>
-
+ 
     <div class="form-group">
       <label>Contact Number</label>
       <input type="text" id="b_contact" value="+8801346524341">
@@ -246,10 +438,10 @@
       <label>Extra Number Line (bottom)</label>
       <input type="text" id="b_extra" value="0012087070  184,28446">
     </div>
-
+ 
     <div class="divider"></div>
     <h2>🖼️ Upload Images</h2>
-
+ 
     <div class="upload-group">
       <label class="upload-btn" title="Upload student photo">
         <span class="icon">👤</span>
@@ -257,21 +449,21 @@
         <input type="file" accept="image/*" onchange="handleUpload(event,'photo')">
         <img id="thumb_photo" class="preview-thumb">
       </label>
-
+ 
       <label class="upload-btn" title="Upload QR code">
         <span class="icon">📱</span>
         <span>Upload QR Code</span>
         <input type="file" accept="image/*" onchange="handleUpload(event,'qr')">
         <img id="thumb_qr" class="preview-thumb">
       </label>
-
+ 
       <label class="upload-btn" title="Upload Registrar signature">
         <span class="icon">✍️</span>
         <span>Upload Registrar Signature</span>
         <input type="file" accept="image/*" onchange="handleUpload(event,'sig')">
         <img id="thumb_sig" class="preview-thumb">
       </label>
-
+ 
       <label class="upload-btn" title="Upload HSTU Logo (or use images/hstu_logo.png)">
         <span class="icon">🏫</span>
         <span>Upload HSTU Logo (optional)</span>
@@ -279,14 +471,14 @@
         <img id="thumb_logo" class="preview-thumb">
       </label>
     </div>
-
+ 
     <div class="divider"></div>
-
+ 
     <div class="btn-row">
       <button class="btn-generate" onclick="renderBoth()">🔄 Generate Preview</button>
     </div>
   </div>
-
+ 
   <!-- PREVIEW PANEL -->
   <div class="preview-panel">
     <div class="canvas-wrap">
@@ -296,7 +488,7 @@
         <button class="btn-download" onclick="downloadCard('front')">⬇️ DOWNLOAD FRONT (HD PNG)</button>
       </div>
     </div>
-
+ 
     <div class="canvas-wrap">
       <span class="canvas-label">🔙 Back Side</span>
       <canvas id="backCanvas"></canvas>
@@ -304,24 +496,24 @@
         <button class="btn-download btn-download-back" onclick="downloadCard('back')">⬇️ DOWNLOAD BACK (HD PNG)</button>
       </div>
     </div>
-
+ 
     <div class="btn-row">
       <button class="btn-download" style="font-size:1.1rem;padding:16px 40px;background:linear-gradient(135deg,#7a4a00,#e8900a)" onclick="downloadBoth()">⬇️ DOWNLOAD NOW — BOTH SIDES (HD PNG)</button>
     </div>
   </div>
 </div>
-
+ 
 <script>
 // ─── State ───────────────────────────────────────────────────────────────────
 const images = { photo: null, qr: null, sig: null, logo: null };
-
+ 
 // Try auto-load logo from GitHub path
 const autoLogo = new Image();
 autoLogo.crossOrigin = 'anonymous';
 autoLogo.src = 'images/hstu_logo.png';
 autoLogo.onload = () => { images.logo = autoLogo; };
 autoLogo.onerror = () => {};
-
+ 
 // ─── Upload Handler ───────────────────────────────────────────────────────────
 function handleUpload(e, key) {
   const file = e.target.files[0];
@@ -339,21 +531,21 @@ function handleUpload(e, key) {
   };
   reader.readAsDataURL(file);
 }
-
+ 
 // ─── Get form values ──────────────────────────────────────────────────────────
 function val(id) { return document.getElementById(id).value.trim(); }
-
-
+ 
+ 
 // ─── Render Both ─────────────────────────────────────────────────────────────
 function renderBoth() { renderFront(); renderBack(); }
-
+ 
 // ─── SCALE: 3x for HD (300dpi equivalent at screen) ─────────────────────────
 const SCALE = 3;
-
+ 
 // Physical card size in pixels at 96dpi: 85.6mm × 54mm → 323×204px → *3 = 969×612
 const CW = 969; // canvas width
 const CH = 612; // canvas height
-
+ 
 // ─── FRONT SIDE ──────────────────────────────────────────────────────────────
 function renderFront() {
   const canvas = document.getElementById('frontCanvas');
@@ -361,170 +553,183 @@ function renderFront() {
   canvas.height = CH;
   canvas.style.width = CW / SCALE + 'px';
   canvas.style.height = CH / SCALE + 'px';
-
+ 
   const ctx = canvas.getContext('2d');
   const s = SCALE;
-
-  // Background white
-  roundRect(ctx, 0, 0, CW, CH, 24 * s, '#ffffff');
-
-  // ── Top header bar (green) ──
-  roundRectTop(ctx, 0, 0, CW, 82 * s, 24 * s, '#0a6b3e');
-
-  // Logo area (left of header)
-  const logoX = 10 * s, logoY = 8 * s, logoW = 66 * s, logoH = 66 * s;
+ 
+  // ── White background (NO rounded corners) ──
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, CW, CH);
+ 
+  // ── Full green header bar (sharp corners) ──
+  const headerH = 95 * s;
+  ctx.fillStyle = '#0a6b3e';
+  ctx.fillRect(0, 0, CW, headerH);
+ 
+  // ── Logo (as-is, no clip, no shape) ──
+  const logoX = 8 * s, logoY = 6 * s, logoW = 80 * s, logoH = 80 * s;
   if (images.logo) {
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(logoX + logoW / 2, logoY + logoH / 2, logoW / 2, 0, Math.PI * 2);
-    ctx.clip();
     ctx.drawImage(images.logo, logoX, logoY, logoW, logoH);
-    ctx.restore();
   } else {
-    // Placeholder circle
     ctx.strokeStyle = 'rgba(255,255,255,0.5)';
     ctx.lineWidth = 2 * s;
-    ctx.beginPath();
-    ctx.arc(logoX + logoW / 2, logoY + logoH / 2, logoW / 2, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.fillStyle = 'rgba(255,255,255,0.15)';
-    ctx.fill();
+    ctx.strokeRect(logoX, logoY, logoW, logoH);
     ctx.fillStyle = 'rgba(255,255,255,0.6)';
-    ctx.font = `bold ${9 * s}px Arial`;
+    ctx.font = `bold ${8 * s}px Arial`;
     ctx.textAlign = 'center';
     ctx.fillText('LOGO', logoX + logoW / 2, logoY + logoH / 2 + 3 * s);
   }
-
-  // University name
+ 
+  // ── University name (centered in remaining width) ──
+  const uniX = logoX + logoW + 8 * s;
+  const uniW = CW - uniX - 6 * s;
+  const uniCX = uniX + uniW / 2;
   ctx.fillStyle = '#ffffff';
+  ctx.font = `bold ${13 * s}px Arial`;
   ctx.textAlign = 'center';
-  ctx.font = `bold ${11.5 * s}px Arial`;
-  const textX = (logoX + logoW + 6 * s + CW) / 2;
-  wrapText(ctx, 'HAJEE MOHAMMAD DANESH SCIENCE AND', textX, 30 * s, (CW - logoX - logoW - 16 * s), 13 * s);
-  wrapText(ctx, 'TECHNOLOGY UNIVERSITY, DINAJPUR, BANGLADESH', textX, 55 * s, (CW - logoX - logoW - 16 * s), 13 * s);
-
+  // Line 1
+  ctx.fillText('HAJEE MOHAMMAD DANESH SCIENCE AND', uniCX, 28 * s);
+  // Line 2
+  ctx.fillText('TECHNOLOGY UNIVERSITY, DINAJPUR,', uniCX, 55 * s);
+  // Line 3
+  ctx.fillText('BANGLADESH', uniCX, 82 * s);
+ 
   // ── ID vertical red bar ──
+  const idBarX = 6 * s;
+  const idBarY = headerH + 4 * s;
+  const idBarW = 24 * s;
+  const idBarH = CH - headerH - 8 * s;
   ctx.fillStyle = '#c0392b';
-  const idBarX = 8 * s, idBarY = 90 * s, idBarW = 22 * s, idBarH = 120 * s;
-  roundRectFill(ctx, idBarX, idBarY, idBarW, idBarH, 4 * s, '#c0392b');
-
-  // ID text (vertical)
+  ctx.fillRect(idBarX, idBarY, idBarW, idBarH);
+ 
+  // ID text vertical
   ctx.save();
   ctx.fillStyle = '#ffffff';
-  ctx.font = `bold ${8 * s}px Arial`;
+  ctx.font = `bold ${9 * s}px Arial`;
   ctx.textAlign = 'center';
   ctx.translate(idBarX + idBarW / 2, idBarY + idBarH / 2);
   ctx.rotate(-Math.PI / 2);
   ctx.fillText('ID NO:' + val('f_id'), 0, 3 * s);
   ctx.restore();
-
+ 
   // ── Photo ──
-  const photoX = 36 * s, photoY = 90 * s, photoW = 70 * s, photoH = 88 * s;
+  const photoX = idBarX + idBarW + 4 * s;
+  const photoY = headerH + 8 * s;
+  const photoW = 82 * s;
+  const photoH = 108 * s;
   if (images.photo) {
-    ctx.save();
-    roundRectClip(ctx, photoX, photoY, photoW, photoH, 4 * s);
     ctx.drawImage(images.photo, photoX, photoY, photoW, photoH);
-    ctx.restore();
   } else {
-    roundRectFill(ctx, photoX, photoY, photoW, photoH, 4 * s, '#dde8e0');
+    ctx.fillStyle = '#dde8e0';
+    ctx.fillRect(photoX, photoY, photoW, photoH);
+    ctx.strokeStyle = '#aaa';
+    ctx.lineWidth = s;
+    ctx.strokeRect(photoX, photoY, photoW, photoH);
     ctx.fillStyle = '#8aab94';
-    ctx.font = `${8 * s}px Arial`;
+    ctx.font = `${9 * s}px Arial`;
     ctx.textAlign = 'center';
     ctx.fillText('PHOTO', photoX + photoW / 2, photoY + photoH / 2 + 3 * s);
   }
-
-  // ── Student name ──
-  const infoX = 118 * s;
-  ctx.fillStyle = '#1a1aaa';
-  ctx.font = `bold ${10.5 * s}px Arial`;
-  ctx.textAlign = 'left';
-  ctx.fillText(val('f_name'), infoX, 104 * s);
-
-  // Info rows
-  ctx.fillStyle = '#111111';
-  ctx.font = `${8.2 * s}px Arial`;
-
-  const rows = [
-    ['Degree', val('f_degree')],
-    ['Faculty', val('f_faculty')],
-    ['Hall', val('f_hall')],
-  ];
-
-  let rowY = 122 * s;
-  for (const [lbl, txt] of rows) {
-    ctx.fillStyle = '#222';
-    ctx.font = `bold ${8 * s}px Arial`;
-    ctx.fillText(lbl + ' :', infoX, rowY);
-    ctx.fillStyle = '#111';
-    ctx.font = `${8 * s}px Arial`;
-    const lblW = ctx.measureText(lbl + ' :  ').width;
-    const maxW = (CW - infoX - 8 * s);
-    wrapTextLeft(ctx, txt, infoX + lblW, rowY, maxW - lblW, 12 * s);
-    rowY += 24 * s;
-    // if degree wraps, bump
-    if (lbl === 'Degree' && txt.length > 40) rowY += 10 * s;
-  }
-
-  // Blood + Mobile
-  rowY += 6 * s;
-  ctx.fillStyle = '#222';
-  ctx.font = `bold ${8 * s}px Arial`;
-  ctx.fillText('Blood Group :', infoX, rowY);
-  ctx.fillStyle = '#cc0000';
-  ctx.font = `bold ${8.5 * s}px Arial`;
-  ctx.fillText(val('f_blood'), infoX + 72 * s, rowY);
-
-  ctx.fillStyle = '#222';
-  ctx.font = `bold ${8 * s}px Arial`;
-  ctx.fillText('Mobile No   :', infoX, rowY + 14 * s);
-  ctx.fillStyle = '#111';
-  ctx.font = `${8 * s}px Arial`;
-  ctx.fillText(val('f_mobile'), infoX + 72 * s, rowY + 14 * s);
-
-  // ── Signature ──
-  const sigX = 38 * s, sigY = 185 * s, sigW = 68 * s, sigH = 22 * s;
+ 
+  // ── Signature (below photo) ──
+  const sigX = photoX;
+  const sigY = photoY + photoH + 6 * s;
+  const sigW = photoW;
+  const sigH = 28 * s;
   if (images.sig) {
     ctx.drawImage(images.sig, sigX, sigY, sigW, sigH);
   } else {
-    ctx.strokeStyle = '#999';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#bbb';
+    ctx.lineWidth = s;
     ctx.strokeRect(sigX, sigY, sigW, sigH);
   }
   ctx.fillStyle = '#333';
-  ctx.font = `${6.5 * s}px Arial`;
+  ctx.font = `${6 * s}px Arial`;
   ctx.textAlign = 'center';
   ctx.fillText('Signature of the Registrar', sigX + sigW / 2, sigY + sigH + 8 * s);
-
-  // ── QR Code ──
-  const qrSize = 46 * s;
-  const qrX = CW - qrSize - 10 * s;
-  const qrY = CH - qrSize - 28 * s;
+ 
+  // ── Info section ──
+  const infoX = photoX + photoW + 10 * s;
+  const infoMaxW = CW - infoX - 8 * s;
+ 
+  // Name
+  ctx.fillStyle = '#1a1aaa';
+  ctx.font = `bold ${11 * s}px Arial`;
+  ctx.textAlign = 'left';
+  ctx.fillText(val('f_name'), infoX, headerH + 22 * s);
+ 
+  // Degree, Faculty, Hall
+  const rows = [
+    ['Degree', val('f_degree')],
+    ['Faculty', val('f_faculty')],
+    ['Hall',   val('f_hall')],
+  ];
+  let rowY = headerH + 42 * s;
+  for (const [lbl, txt] of rows) {
+    ctx.fillStyle = '#111';
+    ctx.font = `bold ${8.5 * s}px Arial`;
+    ctx.fillText(lbl + ' :', infoX, rowY);
+    const lblW = ctx.measureText(lbl + ' :  ').width;
+    ctx.font = `${8.5 * s}px Arial`;
+    ctx.fillStyle = '#111';
+    const lines = splitTextToLines(ctx, txt, infoMaxW - lblW);
+    for (let i = 0; i < lines.length; i++) {
+      ctx.fillText(lines[i], infoX + lblW, rowY + i * 13 * s);
+    }
+    rowY += (lines.length > 1 ? lines.length * 13 * s + 4 * s : 22 * s);
+  }
+ 
+  // Blood Group + Mobile
+  rowY += 4 * s;
+  ctx.fillStyle = '#111';
+  ctx.font = `bold ${8.5 * s}px Arial`;
+  ctx.fillText('Blood Group :', infoX, rowY);
+  ctx.fillStyle = '#cc0000';
+  ctx.font = `bold ${9 * s}px Arial`;
+  ctx.fillText(val('f_blood'), infoX + 76 * s, rowY);
+ 
+  rowY += 20 * s;
+  ctx.fillStyle = '#111';
+  ctx.font = `bold ${8.5 * s}px Arial`;
+  ctx.fillText('Mobile No   :', infoX, rowY);
+  ctx.font = `${8.5 * s}px Arial`;
+  ctx.fillStyle = '#111';
+  ctx.fillText(val('f_mobile'), infoX + 76 * s, rowY);
+ 
+  // ── QR Code (bottom right) ──
+  const qrSize = 60 * s;
+  const qrX = CW - qrSize - 8 * s;
+  const qrY = CH - qrSize - 8 * s;
   if (images.qr) {
     ctx.drawImage(images.qr, qrX, qrY, qrSize, qrSize);
   } else {
     ctx.strokeStyle = '#666';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = s;
     ctx.strokeRect(qrX, qrY, qrSize, qrSize);
     ctx.fillStyle = '#aaa';
-    ctx.font = `${7 * s}px Arial`;
+    ctx.font = `${8 * s}px Arial`;
     ctx.textAlign = 'center';
     ctx.fillText('QR', qrX + qrSize / 2, qrY + qrSize / 2 + 3 * s);
   }
-
-  // ── Valid bar (green) ──
-  const vbX = 118 * s, vbY = CH - 26 * s, vbW = qrX - vbX - 8 * s, vbH = 18 * s;
-  roundRectFill(ctx, vbX, vbY, vbW, vbH, 4 * s, '#0a6b3e');
+ 
+  // ── Valid bar (green, above QR) ──
+  const vbX = infoX;
+  const vbY = CH - 26 * s;
+  const vbW = qrX - infoX - 8 * s;
+  const vbH = 20 * s;
+  ctx.fillStyle = '#0a6b3e';
+  ctx.fillRect(vbX, vbY, vbW, vbH);
   ctx.fillStyle = '#ffffff';
-  ctx.font = `bold ${8 * s}px Arial`;
+  ctx.font = `bold ${9 * s}px Arial`;
   ctx.textAlign = 'center';
-  ctx.fillText('Valid up to: ' + val('f_valid'), vbX + vbW / 2, vbY + 13 * s);
-
+  ctx.fillText('Valid up to: ' + val('f_valid'), vbX + vbW / 2, vbY + 14 * s);
+ 
   // Card border
-  ctx.strokeStyle = '#cccccc';
-  ctx.lineWidth = 1;
-  roundRectStroke(ctx, 0.5, 0.5, CW - 1, CH - 1, 24 * s);
+  ctx.strokeStyle = '#aaaaaa';
+  ctx.lineWidth = s;
+  ctx.strokeRect(0, 0, CW, CH);
 }
-
+ 
 // ─── BACK SIDE ───────────────────────────────────────────────────────────────
 function renderBack() {
   const canvas = document.getElementById('backCanvas');
@@ -532,19 +737,20 @@ function renderBack() {
   canvas.height = CH;
   canvas.style.width = CW / SCALE + 'px';
   canvas.style.height = CH / SCALE + 'px';
-
+ 
   const ctx = canvas.getContext('2d');
   const s = SCALE;
-
-  // White background
-  roundRect(ctx, 0, 0, CW, CH, 24 * s, '#ffffff');
-
+ 
+  // White background (NO rounded corners)
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, CW, CH);
+ 
   // Title
   ctx.fillStyle = '#111';
   ctx.font = `bold ${11 * s}px "Comic Sans MS", cursive, sans-serif`;
   ctx.textAlign = 'center';
-  ctx.fillText('General Information', CW / 2, 38 * s);
-
+  ctx.fillText('General Information', CW / 2, 34 * s);
+ 
   // Bullet lines
   const bullets = [
     'Student should carry this card for their own identity.',
@@ -554,42 +760,40 @@ function renderBack() {
     'Loss of this card must be reported to nearby Police station and apply with GD copy for re-issue.',
     'Any one found the lost card, is requested to contact with the University Authority.'
   ];
-
+ 
   ctx.font = `${7.8 * s}px Arial`;
   ctx.fillStyle = '#111';
   ctx.textAlign = 'left';
-
-  let by = 62 * s;
+ 
+  let by = 56 * s;
   const bx = 22 * s;
   const maxW = CW - bx - 12 * s;
-
+ 
   for (const b of bullets) {
-    // Bullet dot
     ctx.fillStyle = '#111';
     ctx.beginPath();
-    ctx.arc(bx - 6 * s, by - 3 * s, 3 * s, 0, Math.PI * 2);
+    ctx.arc(bx - 7 * s, by - 3 * s, 3.5 * s, 0, Math.PI * 2);
     ctx.fill();
-
     const lines = splitTextToLines(ctx, b, maxW);
     for (let i = 0; i < lines.length; i++) {
       ctx.fillText(lines[i], bx, by + i * 13 * s);
     }
-    by += lines.length * 13 * s + 5 * s;
+    by += lines.length * 13 * s + 6 * s;
   }
-
+ 
   // Bottom contact
   ctx.font = `${7.5 * s}px Arial`;
   ctx.textAlign = 'center';
   ctx.fillStyle = '#222';
-  ctx.fillText('Contact Number- ' + val('b_contact') + '   Web: ' + val('b_web'), CW / 2, CH - 20 * s);
-  ctx.fillText(val('b_extra'), CW / 2, CH - 8 * s);
-
+  ctx.fillText('Contact Number- ' + val('b_contact') + '   Web: ' + val('b_web'), CW / 2, CH - 18 * s);
+  ctx.fillText(val('b_extra'), CW / 2, CH - 6 * s);
+ 
   // Card border
-  ctx.strokeStyle = '#cccccc';
-  ctx.lineWidth = 1;
-  roundRectStroke(ctx, 0.5, 0.5, CW - 1, CH - 1, 24 * s);
+  ctx.strokeStyle = '#aaaaaa';
+  ctx.lineWidth = s;
+  ctx.strokeRect(0, 0, CW, CH);
 }
-
+ 
 // ─── Download ─────────────────────────────────────────────────────────────────
 function downloadCard(side) {
   const canvas = document.getElementById(side + 'Canvas');
@@ -598,12 +802,12 @@ function downloadCard(side) {
   a.download = 'HSTU_ID_' + side.toUpperCase() + '_HD.png';
   a.click();
 }
-
+ 
 function downloadBoth() {
   setTimeout(() => downloadCard('front'), 0);
   setTimeout(() => downloadCard('back'), 300);
 }
-
+ 
 // ─── Canvas Helpers ───────────────────────────────────────────────────────────
 function roundRect(ctx, x, y, w, h, r, fill) {
   ctx.beginPath();
@@ -620,9 +824,9 @@ function roundRect(ctx, x, y, w, h, r, fill) {
   ctx.fillStyle = fill;
   ctx.fill();
 }
-
+ 
 function roundRectFill(ctx, x, y, w, h, r, fill) { roundRect(ctx, x, y, w, h, r, fill); }
-
+ 
 function roundRectTop(ctx, x, y, w, h, r, fill) {
   ctx.beginPath();
   ctx.moveTo(x + r, y);
@@ -636,7 +840,7 @@ function roundRectTop(ctx, x, y, w, h, r, fill) {
   ctx.fillStyle = fill;
   ctx.fill();
 }
-
+ 
 function roundRectStroke(ctx, x, y, w, h, r) {
   ctx.beginPath();
   ctx.moveTo(x + r, y);
@@ -651,7 +855,7 @@ function roundRectStroke(ctx, x, y, w, h, r) {
   ctx.closePath();
   ctx.stroke();
 }
-
+ 
 function roundRectClip(ctx, x, y, w, h, r) {
   ctx.beginPath();
   ctx.moveTo(x + r, y);
@@ -666,7 +870,7 @@ function roundRectClip(ctx, x, y, w, h, r) {
   ctx.closePath();
   ctx.clip();
 }
-
+ 
 function wrapText(ctx, text, cx, y, maxW, lineH) {
   const words = text.split(' ');
   let line = '';
@@ -686,7 +890,7 @@ function wrapText(ctx, text, cx, y, maxW, lineH) {
     ctx.fillText(lines[i], cx, startY + i * lineH);
   }
 }
-
+ 
 function wrapTextLeft(ctx, text, x, y, maxW, lineH) {
   const words = text.split(' ');
   let line = '';
@@ -705,7 +909,7 @@ function wrapTextLeft(ctx, text, x, y, maxW, lineH) {
     ctx.fillText(lines[i], x, y + i * lineH);
   }
 }
-
+ 
 function splitTextToLines(ctx, text, maxW) {
   const words = text.split(' ');
   let line = '';
@@ -722,9 +926,10 @@ function splitTextToLines(ctx, text, maxW) {
   if (line) lines.push(line);
   return lines;
 }
-
+ 
 // ─── Initial render ──────────────────────────────────────────────────────────
 window.onload = () => {};
 </script>
 </body>
 </html>
+ 
