@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSTU ID Card Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1a3a2a 0%, #0d2010 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+    color: #7fff9a;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .subtitle {
+    text-align: center;
+    color: #aed6b0;
+    margin-bottom: 24px;
+    font-size: 0.9rem;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  .form-panel {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+  }
+  .form-panel h2 {
+    font-size: 1rem;
+    color: #7fff9a;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(127,255,154,0.3);
+    padding-bottom: 8px;
+  }
+  .form-group {
+    margin-bottom: 12px;
+  }
+  label {
+    display: block;
+    font-size: 0.75rem;
+    color: #aed6b0;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  input[type="text"], select, textarea {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(127,255,154,0.25);
+    border-radius: 7px;
+    color: #fff;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input[type="text"]:focus, select:focus {
+    border-color: #7fff9a;
+  }
+  select option { background: #1a3a2a; }
+  .upload-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .upload-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,0,0,0.3);
+    border: 1px dashed rgba(127,255,154,0.4);
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #aed6b0;
+    font-size: 0.82rem;
+  }
+  .upload-btn:hover { border-color: #7fff9a; color: #7fff9a; background: rgba(127,255,154,0.06); }
+  .upload-btn input { display: none; }
+  .upload-btn .icon { font-size: 1.4rem; }
+  .preview-thumb {
+    width: 40px; height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: none;
+    border: 1px solid #7fff9a;
+  }
+  .divider {
+    height: 1px;
+    background: rgba(127,255,154,0.15);
+    margin: 16px 0;
+  }
+  .preview-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .preview-panel h2 {
+    font-size: 1rem;
+    color: #7fff9a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .canvas-wrap {
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .canvas-label {
+    font-size: 0.78rem;
+    color: #aed6b0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: flex-start;
+  }
+  canvas {
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    max-width: 100%;
+  }
+  .btn-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  .btn-generate {
+    background: linear-gradient(135deg, #1a6b2a, #2da842);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+  .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,168,66,0.4); }
+  .btn-download {
+    background: linear-gradient(135deg, #1a4a8a, #2a6ad4);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+  .btn-download:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(42,106,212,0.4); }
+  .btn-download-back {
+    background: linear-gradient(135deg, #6a1a3a, #d42a6a);
+  }
+  .btn-download-back:hover { box-shadow: 0 6px 20px rgba(212,42,106,0.4); }
+  @media (max-width: 900px) {
+    .container { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🎓 HSTU ID Card Generator</h1>
+<p class="subtitle">Hajee Mohammad Danesh Science and Technology University — High Definition Card Maker</p>
+
+<div class="container">
+  <!-- FORM PANEL -->
+  <div class="form-panel">
+    <h2>📋 Student Information</h2>
+
+    <div class="form-group">
+      <label>Student Full Name</label>
+      <input type="text" id="f_name" value="S.M. MUKTADIR ISLAM">
+    </div>
+    <div class="form-group">
+      <label>ID Number</label>
+      <input type="text" id="f_id" value="2502231">
+    </div>
+    <div class="form-group">
+      <label>Degree</label>
+      <input type="text" id="f_degree" value="B.Sc. (Engineering) in Electrical and Electronic Engineering">
+    </div>
+    <div class="form-group">
+      <label>Faculty</label>
+      <input type="text" id="f_faculty" value="Computer Science and Engineering">
+    </div>
+    <div class="form-group">
+      <label>Hall Name</label>
+      <input type="text" id="f_hall" value="Shaheed President Ziaur Rahman Hall">
+    </div>
+    <div class="form-group">
+      <label>Blood Group</label>
+      <input type="text" id="f_blood" value="B+">
+    </div>
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input type="text" id="f_mobile" value="01643079920">
+    </div>
+    <div class="form-group">
+      <label>Valid Up To</label>
+      <input type="text" id="f_valid" value="Dec 2028">
+    </div>
+
+    <div class="divider"></div>
+    <h2>🔙 Back Side Numbers</h2>
+
+    <div class="form-group">
+      <label>Contact Number</label>
+      <input type="text" id="b_contact" value="+8801346524341">
+    </div>
+    <div class="form-group">
+      <label>Website</label>
+      <input type="text" id="b_web" value="https://www.hstu.ac.bd">
+    </div>
+    <div class="form-group">
+      <label>Extra Number Line (bottom)</label>
+      <input type="text" id="b_extra" value="0012087070  184,28446">
+    </div>
+
+    <div class="divider"></div>
+    <h2>🖼️ Upload Images</h2>
+
+    <div class="upload-group">
+      <label class="upload-btn" title="Upload student photo">
+        <span class="icon">👤</span>
+        <span>Upload Student Photo</span>
+        <input type="file" accept="image/*" onchange="handleUpload(event,'photo')">
+        <img id="thumb_photo" class="preview-thumb">
+      </label>
+
+      <label class="upload-btn" title="Upload QR code">
+        <span class="icon">📱</span>
+        <span>Upload QR Code</span>
+        <input type="file" accept="image/*" onchange="handleUpload(event,'qr')">
+        <img id="thumb_qr" class="preview-thumb">
+      </label>
+
+      <label class="upload-btn" title="Upload Registrar signature">
+        <span class="icon">✍️</span>
+        <span>Upload Registrar Signature</span>
+        <input type="file" accept="image/*" onchange="handleUpload(event,'sig')">
+        <img id="thumb_sig" class="preview-thumb">
+      </label>
+
+      <label class="upload-btn" title="Upload HSTU Logo (or use images/hstu_logo.png)">
+        <span class="icon">🏫</span>
+        <span>Upload HSTU Logo (optional)</span>
+        <input type="file" accept="image/*" onchange="handleUpload(event,'logo')">
+        <img id="thumb_logo" class="preview-thumb">
+      </label>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="btn-row">
+      <button class="btn-generate" onclick="renderBoth()">🔄 Generate Preview</button>
+    </div>
+  </div>
+
+  <!-- PREVIEW PANEL -->
+  <div class="preview-panel">
+    <div class="canvas-wrap">
+      <span class="canvas-label">🪪 Front Side</span>
+      <canvas id="frontCanvas"></canvas>
+      <div class="btn-row">
+        <button class="btn-download" onclick="downloadCard('front')">⬇️ DOWNLOAD FRONT (HD PNG)</button>
+      </div>
+    </div>
+
+    <div class="canvas-wrap">
+      <span class="canvas-label">🔙 Back Side</span>
+      <canvas id="backCanvas"></canvas>
+      <div class="btn-row">
+        <button class="btn-download btn-download-back" onclick="downloadCard('back')">⬇️ DOWNLOAD BACK (HD PNG)</button>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-download" style="font-size:1.1rem;padding:16px 40px;background:linear-gradient(135deg,#7a4a00,#e8900a)" onclick="downloadBoth()">⬇️ DOWNLOAD NOW — BOTH SIDES (HD PNG)</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── State ───────────────────────────────────────────────────────────────────
+const images = { photo: null, qr: null, sig: null, logo: null };
+
+// Try auto-load logo from GitHub path
+const autoLogo = new Image();
+autoLogo.crossOrigin = 'anonymous';
+autoLogo.src = 'images/hstu_logo.png';
+autoLogo.onload = () => { images.logo = autoLogo; };
+autoLogo.onerror = () => {};
+
+// ─── Upload Handler ───────────────────────────────────────────────────────────
+function handleUpload(e, key) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const img = new Image();
+    img.onload = () => {
+      images[key] = img;
+      const thumb = document.getElementById('thumb_' + key);
+      thumb.src = ev.target.result;
+      thumb.style.display = 'block';
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+// ─── Get form values ──────────────────────────────────────────────────────────
+function val(id) { return document.getElementById(id).value.trim(); }
+
+
+// ─── Render Both ─────────────────────────────────────────────────────────────
+function renderBoth() { renderFront(); renderBack(); }
+
+// ─── SCALE: 3x for HD (300dpi equivalent at screen) ─────────────────────────
+const SCALE = 3;
+
+// Physical card size in pixels at 96dpi: 85.6mm × 54mm → 323×204px → *3 = 969×612
+const CW = 969; // canvas width
+const CH = 612; // canvas height
+
+// ─── FRONT SIDE ──────────────────────────────────────────────────────────────
+function renderFront() {
+  const canvas = document.getElementById('frontCanvas');
+  canvas.width = CW;
+  canvas.height = CH;
+  canvas.style.width = CW / SCALE + 'px';
+  canvas.style.height = CH / SCALE + 'px';
+
+  const ctx = canvas.getContext('2d');
+  const s = SCALE;
+
+  // Background white
+  roundRect(ctx, 0, 0, CW, CH, 24 * s, '#ffffff');
+
+  // ── Top header bar (green) ──
+  roundRectTop(ctx, 0, 0, CW, 82 * s, 24 * s, '#0a6b3e');
+
+  // Logo area (left of header)
+  const logoX = 10 * s, logoY = 8 * s, logoW = 66 * s, logoH = 66 * s;
+  if (images.logo) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(logoX + logoW / 2, logoY + logoH / 2, logoW / 2, 0, Math.PI * 2);
+    ctx.clip();
+    ctx.drawImage(images.logo, logoX, logoY, logoW, logoH);
+    ctx.restore();
+  } else {
+    // Placeholder circle
+    ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+    ctx.lineWidth = 2 * s;
+    ctx.beginPath();
+    ctx.arc(logoX + logoW / 2, logoY + logoH / 2, logoW / 2, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(255,255,255,0.15)';
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+    ctx.font = `bold ${9 * s}px Arial`;
+    ctx.textAlign = 'center';
+    ctx.fillText('LOGO', logoX + logoW / 2, logoY + logoH / 2 + 3 * s);
+  }
+
+  // University name
+  ctx.fillStyle = '#ffffff';
+  ctx.textAlign = 'center';
+  ctx.font = `bold ${11.5 * s}px Arial`;
+  const textX = (logoX + logoW + 6 * s + CW) / 2;
+  wrapText(ctx, 'HAJEE MOHAMMAD DANESH SCIENCE AND', textX, 30 * s, (CW - logoX - logoW - 16 * s), 13 * s);
+  wrapText(ctx, 'TECHNOLOGY UNIVERSITY, DINAJPUR, BANGLADESH', textX, 55 * s, (CW - logoX - logoW - 16 * s), 13 * s);
+
+  // ── ID vertical red bar ──
+  ctx.fillStyle = '#c0392b';
+  const idBarX = 8 * s, idBarY = 90 * s, idBarW = 22 * s, idBarH = 120 * s;
+  roundRectFill(ctx, idBarX, idBarY, idBarW, idBarH, 4 * s, '#c0392b');
+
+  // ID text (vertical)
+  ctx.save();
+  ctx.fillStyle = '#ffffff';
+  ctx.font = `bold ${8 * s}px Arial`;
+  ctx.textAlign = 'center';
+  ctx.translate(idBarX + idBarW / 2, idBarY + idBarH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('ID NO:' + val('f_id'), 0, 3 * s);
+  ctx.restore();
+
+  // ── Photo ──
+  const photoX = 36 * s, photoY = 90 * s, photoW = 70 * s, photoH = 88 * s;
+  if (images.photo) {
+    ctx.save();
+    roundRectClip(ctx, photoX, photoY, photoW, photoH, 4 * s);
+    ctx.drawImage(images.photo, photoX, photoY, photoW, photoH);
+    ctx.restore();
+  } else {
+    roundRectFill(ctx, photoX, photoY, photoW, photoH, 4 * s, '#dde8e0');
+    ctx.fillStyle = '#8aab94';
+    ctx.font = `${8 * s}px Arial`;
+    ctx.textAlign = 'center';
+    ctx.fillText('PHOTO', photoX + photoW / 2, photoY + photoH / 2 + 3 * s);
+  }
+
+  // ── Student name ──
+  const infoX = 118 * s;
+  ctx.fillStyle = '#1a1aaa';
+  ctx.font = `bold ${10.5 * s}px Arial`;
+  ctx.textAlign = 'left';
+  ctx.fillText(val('f_name'), infoX, 104 * s);
+
+  // Info rows
+  ctx.fillStyle = '#111111';
+  ctx.font = `${8.2 * s}px Arial`;
+
+  const rows = [
+    ['Degree', val('f_degree')],
+    ['Faculty', val('f_faculty')],
+    ['Hall', val('f_hall')],
+  ];
+
+  let rowY = 122 * s;
+  for (const [lbl, txt] of rows) {
+    ctx.fillStyle = '#222';
+    ctx.font = `bold ${8 * s}px Arial`;
+    ctx.fillText(lbl + ' :', infoX, rowY);
+    ctx.fillStyle = '#111';
+    ctx.font = `${8 * s}px Arial`;
+    const lblW = ctx.measureText(lbl + ' :  ').width;
+    const maxW = (CW - infoX - 8 * s);
+    wrapTextLeft(ctx, txt, infoX + lblW, rowY, maxW - lblW, 12 * s);
+    rowY += 24 * s;
+    // if degree wraps, bump
+    if (lbl === 'Degree' && txt.length > 40) rowY += 10 * s;
+  }
+
+  // Blood + Mobile
+  rowY += 6 * s;
+  ctx.fillStyle = '#222';
+  ctx.font = `bold ${8 * s}px Arial`;
+  ctx.fillText('Blood Group :', infoX, rowY);
+  ctx.fillStyle = '#cc0000';
+  ctx.font = `bold ${8.5 * s}px Arial`;
+  ctx.fillText(val('f_blood'), infoX + 72 * s, rowY);
+
+  ctx.fillStyle = '#222';
+  ctx.font = `bold ${8 * s}px Arial`;
+  ctx.fillText('Mobile No   :', infoX, rowY + 14 * s);
+  ctx.fillStyle = '#111';
+  ctx.font = `${8 * s}px Arial`;
+  ctx.fillText(val('f_mobile'), infoX + 72 * s, rowY + 14 * s);
+
+  // ── Signature ──
+  const sigX = 38 * s, sigY = 185 * s, sigW = 68 * s, sigH = 22 * s;
+  if (images.sig) {
+    ctx.drawImage(images.sig, sigX, sigY, sigW, sigH);
+  } else {
+    ctx.strokeStyle = '#999';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(sigX, sigY, sigW, sigH);
+  }
+  ctx.fillStyle = '#333';
+  ctx.font = `${6.5 * s}px Arial`;
+  ctx.textAlign = 'center';
+  ctx.fillText('Signature of the Registrar', sigX + sigW / 2, sigY + sigH + 8 * s);
+
+  // ── QR Code ──
+  const qrSize = 46 * s;
+  const qrX = CW - qrSize - 10 * s;
+  const qrY = CH - qrSize - 28 * s;
+  if (images.qr) {
+    ctx.drawImage(images.qr, qrX, qrY, qrSize, qrSize);
+  } else {
+    ctx.strokeStyle = '#666';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(qrX, qrY, qrSize, qrSize);
+    ctx.fillStyle = '#aaa';
+    ctx.font = `${7 * s}px Arial`;
+    ctx.textAlign = 'center';
+    ctx.fillText('QR', qrX + qrSize / 2, qrY + qrSize / 2 + 3 * s);
+  }
+
+  // ── Valid bar (green) ──
+  const vbX = 118 * s, vbY = CH - 26 * s, vbW = qrX - vbX - 8 * s, vbH = 18 * s;
+  roundRectFill(ctx, vbX, vbY, vbW, vbH, 4 * s, '#0a6b3e');
+  ctx.fillStyle = '#ffffff';
+  ctx.font = `bold ${8 * s}px Arial`;
+  ctx.textAlign = 'center';
+  ctx.fillText('Valid up to: ' + val('f_valid'), vbX + vbW / 2, vbY + 13 * s);
+
+  // Card border
+  ctx.strokeStyle = '#cccccc';
+  ctx.lineWidth = 1;
+  roundRectStroke(ctx, 0.5, 0.5, CW - 1, CH - 1, 24 * s);
+}
+
+// ─── BACK SIDE ───────────────────────────────────────────────────────────────
+function renderBack() {
+  const canvas = document.getElementById('backCanvas');
+  canvas.width = CW;
+  canvas.height = CH;
+  canvas.style.width = CW / SCALE + 'px';
+  canvas.style.height = CH / SCALE + 'px';
+
+  const ctx = canvas.getContext('2d');
+  const s = SCALE;
+
+  // White background
+  roundRect(ctx, 0, 0, CW, CH, 24 * s, '#ffffff');
+
+  // Title
+  ctx.fillStyle = '#111';
+  ctx.font = `bold ${11 * s}px "Comic Sans MS", cursive, sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.fillText('General Information', CW / 2, 38 * s);
+
+  // Bullet lines
+  const bullets = [
+    'Student should carry this card for their own identity.',
+    'Nobody can carry this card except the holder.',
+    'Illegal use of this card will be considered as offence.',
+    'After acquiring the mentioned degree the student has to handover the card to the Authority.',
+    'Loss of this card must be reported to nearby Police station and apply with GD copy for re-issue.',
+    'Any one found the lost card, is requested to contact with the University Authority.'
+  ];
+
+  ctx.font = `${7.8 * s}px Arial`;
+  ctx.fillStyle = '#111';
+  ctx.textAlign = 'left';
+
+  let by = 62 * s;
+  const bx = 22 * s;
+  const maxW = CW - bx - 12 * s;
+
+  for (const b of bullets) {
+    // Bullet dot
+    ctx.fillStyle = '#111';
+    ctx.beginPath();
+    ctx.arc(bx - 6 * s, by - 3 * s, 3 * s, 0, Math.PI * 2);
+    ctx.fill();
+
+    const lines = splitTextToLines(ctx, b, maxW);
+    for (let i = 0; i < lines.length; i++) {
+      ctx.fillText(lines[i], bx, by + i * 13 * s);
+    }
+    by += lines.length * 13 * s + 5 * s;
+  }
+
+  // Bottom contact
+  ctx.font = `${7.5 * s}px Arial`;
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#222';
+  ctx.fillText('Contact Number- ' + val('b_contact') + '   Web: ' + val('b_web'), CW / 2, CH - 20 * s);
+  ctx.fillText(val('b_extra'), CW / 2, CH - 8 * s);
+
+  // Card border
+  ctx.strokeStyle = '#cccccc';
+  ctx.lineWidth = 1;
+  roundRectStroke(ctx, 0.5, 0.5, CW - 1, CH - 1, 24 * s);
+}
+
+// ─── Download ─────────────────────────────────────────────────────────────────
+function downloadCard(side) {
+  const canvas = document.getElementById(side + 'Canvas');
+  const a = document.createElement('a');
+  a.href = canvas.toDataURL('image/png');
+  a.download = 'HSTU_ID_' + side.toUpperCase() + '_HD.png';
+  a.click();
+}
+
+function downloadBoth() {
+  setTimeout(() => downloadCard('front'), 0);
+  setTimeout(() => downloadCard('back'), 300);
+}
+
+// ─── Canvas Helpers ───────────────────────────────────────────────────────────
+function roundRect(ctx, x, y, w, h, r, fill) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+  ctx.fillStyle = fill;
+  ctx.fill();
+}
+
+function roundRectFill(ctx, x, y, w, h, r, fill) { roundRect(ctx, x, y, w, h, r, fill); }
+
+function roundRectTop(ctx, x, y, w, h, r, fill) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h);
+  ctx.lineTo(x, y + h);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+  ctx.fillStyle = fill;
+  ctx.fill();
+}
+
+function roundRectStroke(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+  ctx.stroke();
+}
+
+function roundRectClip(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+  ctx.clip();
+}
+
+function wrapText(ctx, text, cx, y, maxW, lineH) {
+  const words = text.split(' ');
+  let line = '';
+  let lines = [];
+  for (const w of words) {
+    const test = line + (line ? ' ' : '') + w;
+    if (ctx.measureText(test).width > maxW && line) {
+      lines.push(line);
+      line = w;
+    } else {
+      line = test;
+    }
+  }
+  if (line) lines.push(line);
+  const startY = y - ((lines.length - 1) * lineH) / 2;
+  for (let i = 0; i < lines.length; i++) {
+    ctx.fillText(lines[i], cx, startY + i * lineH);
+  }
+}
+
+function wrapTextLeft(ctx, text, x, y, maxW, lineH) {
+  const words = text.split(' ');
+  let line = '';
+  let lines = [];
+  for (const w of words) {
+    const test = line + (line ? ' ' : '') + w;
+    if (ctx.measureText(test).width > maxW && line) {
+      lines.push(line);
+      line = w;
+    } else {
+      line = test;
+    }
+  }
+  if (line) lines.push(line);
+  for (let i = 0; i < lines.length; i++) {
+    ctx.fillText(lines[i], x, y + i * lineH);
+  }
+}
+
+function splitTextToLines(ctx, text, maxW) {
+  const words = text.split(' ');
+  let line = '';
+  let lines = [];
+  for (const w of words) {
+    const test = line + (line ? ' ' : '') + w;
+    if (ctx.measureText(test).width > maxW && line) {
+      lines.push(line);
+      line = w;
+    } else {
+      line = test;
+    }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+// ─── Initial render ──────────────────────────────────────────────────────────
+window.onload = () => {};
+</script>
+</body>
+</html>
